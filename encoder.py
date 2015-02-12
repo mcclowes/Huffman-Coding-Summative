@@ -26,14 +26,14 @@ def encode_string(inputString):
 	#take min1 and min2 and remove
 		min1 = tuple(tree[0])
 		min2 = tuple(tree[1])
-		print ("Min1 = " + str(min1))
-		print ("Min2 = " + str(min2))
+		#print ("Min1 = " + str(min1))
+		#print ("Min2 = " + str(min2))
 		del tree[0]
 		del tree[0]
 
 	#combine min1 and min2 into a new tuple, with the summed freq
 		newTup = ((min1, min2), min1[1] + min2[1])
-		print ("new tup" + str(newTup))
+		#print ("new tup" + str(newTup))
 
 	#add in new tuple
 		tree.append(newTup)
@@ -43,7 +43,8 @@ def encode_string(inputString):
 	walk_tree(tree[0], binaryDict, '')
 	print (binaryDict)
 
-	return output_string(binaryDict, inputString)
+	#return string_to_bits(output_string(binaryDict, inputString))
+	return (str(binaryDict) + str(output_string(binaryDict, inputString)))
 
 def walk_tree(node, dic, code):
 	if type(node[0]) == type("str"):
@@ -61,4 +62,8 @@ def output_string(binaryDict, inputString):
 		output_string += binaryDict[char]
 	return output_string
 
+def string_to_bits(bitString):
+	bitString = map(lambda x: int(x,2), bitString)
+	encodedString = bytearray(bitString)
+	return encodedString
 		
