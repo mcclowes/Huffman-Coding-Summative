@@ -18,11 +18,6 @@ def encode_string(inputString):
 	tree = charCounter.items()
 	print (tree)
 
-	#create binary holder
-	#binaryList = []
-	#for char in tree:
-	#	binaryList.append((char, ''))
-
 	#While the tree is bigger than 1
 	while len(tree) > 1:
 	#Sort (indent)
@@ -45,13 +40,25 @@ def encode_string(inputString):
 
 	#add binary
 	binaryDict = {}
-	walk_tree()
+	walk_tree(tree[0], binaryDict, '')
+	print (binaryDict)
+
+	return output_string(binaryDict, inputString)
 
 def walk_tree(node, dic, code):
-	if type(node) = type("STRING"):
-		dic.update({node:code})
+	if type(node[0]) == type("str"):
+		dic.update({node[0]:code})
 	else:
-		walk_tree(node[0], dic, code+"0")
-		walk_tree(node[1], dic, code+"1")
+		print ("Current node = " + str(node[0]))
+		print ("Node type = " + str(type(node[0])))
+		walk_tree(node[0][0], dic, code + '0')
+		walk_tree(node[0][1], dic, code + '1')
 	return dic
+
+def output_string(binaryDict, inputString):
+	output_string = ''
+	for char in inputString:
+		output_string += binaryDict[char]
+	return output_string
+
 		
