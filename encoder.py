@@ -36,7 +36,7 @@ def encode_string(inputString):
 	walk_tree(tree[0], binaryDict, '')
 	#print (binaryDict)
 
-	return string_to_bits(output_string(binaryDict, inputString))
+	return str(binaryDict) + string_to_bits(output_string(binaryDict, inputString)) #add in dictionary too
 	#return (str(binaryDict) + str(output_string(binaryDict, inputString)))
 
 def walk_tree(node, dic, code):
@@ -54,5 +54,23 @@ def output_string(binaryDict, inputString):
 	return output_string
 
 def string_to_bits(bitString):
-	return bytearray(map(lambda x: int(x,2), bitString))
+	#ensure bitString is % 8 (pad)
+	paddingCounter = 0
+	while (len(bitString) % 8 != 0):
+		bitString += '0'
+		paddingCounter += 1
+
+	#add buffer length to front
+	paddingCounter = '{0:08b}'.format(paddingCounter)
+	bitString = paddingCounter + bitString
+
+	#divide bitString into array of bytes
+	n = 8
+	chunkedString = [bitString[i:i + n] for i in range(0, len(bitString), n)]
+	print (chunkedString)
+
+	#Return converted to bytes
+	return bytearray(map(lambda x: int(x,2), chunkedString))
+
+	
 		
