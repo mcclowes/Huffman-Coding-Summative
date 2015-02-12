@@ -1,17 +1,21 @@
+import collections
+
 #Takes a string and encodes in binary
 def encode_string(inputString):
-	freqCounter = ()
+	freqCounter = collections.defaultdict(int)
 	freqTotal = 0
+
 	#Calculate char probabilities
 	for c in inputString:
 	    freqCounter[c] += 1
 	    freqTotal +=1
-	charDict = sorted(freqCounter, key=freqCounter.get)
-
+	freqCounter = sorted(freqCounter, key=freqCounter.get)
+	print (freqCounter)
 	#Print freqs for ref
-	for c in charDict:
-		print '%s %6d' % (c[0], freqCounter[c]/freqTotal)
-	charList = charDict.items()
+	for c in freqCounter:
+		print '%s %6d' % (c, freqCounter[c]/freqTotal)
+
+	charList = freqCounter.items()
 	print charList
 
 	#Calculate correct bit chars
@@ -23,10 +27,6 @@ def encode_string(inputString):
 
 #key = letter, value = freq
 def grow_tree(charList):
-	binaryDict = collections.defaultdict(int)
-	for key in charList:
-		binaryDict[key] = 2
-
 	#Until tree in completed
 	while (len(charList)>1):
 		min1 = min(charList)
