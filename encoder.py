@@ -2,53 +2,29 @@ import collections
 
 #Takes a string and encodes in binary
 def encode_string(inputString):
-	freqCounter = collections.defaultdict(int)
-	freqTotal = 0
+	#Take string and create an array of tuples of characters and their respective frequencies
+	charCounter = {}
+	for s in inputString:
+	  if charCounter.has_key(s):
+	    charCounter[s] += 1
+	  else:
+	    charCounter[s] = 1
 
-	#Calculate char probabilities
-	for c in inputString:
-	    freqCounter[c] += 1
-	    freqTotal +=1
-	freqCounter = sorted(freqCounter, key=freqCounter.get)
-	print (freqCounter)
-	#Print freqs for ref
-	for c in freqCounter:
-		print '%s %6d' % (c, freqCounter[c]/freqTotal)
+	for key in charCounter:
+	  if charCounter[key] > 1:
+	    print key, charCounter[key]
 
-	charList = freqCounter.items()
-	print charList
+	#Copy into a tree
+	tree = charCounter.items()
+	print (tree)
+	#While the tree is bigger than 1
+	#while len(tree) > 1:
+	#Sort
 
-	#Calculate correct bit chars
-	binaryDict = grow_tree(charList)
+	#take min1 and min2
 
-	#Output input string as an encoded string
-	print (write_binary(binaryDict, inputString))
-	#output_encode_file(write_binary(binaryDict, inputString))
+	#combine min1 and min2 into a new tuple, with the summed freq
+	
+	#add in new tuple
 
-#key = letter, value = freq
-def grow_tree(charList):
-	#Until tree in completed
-	while (len(charList)>1):
-		min1 = min(charList)
-		charList.remove(min1)
-		min2 = min(charList)
-		charList.remove(min2)
-
-		#build up binary
-
-	#search?
-	#combine two lowest freq elements
-	#sort list?
-	deconstruct_tree()
-	pass
-	#return binaryDict
-
-def deconstruct_tree(tree):
-	for element in tree:
-		pass
-
-def write_binary(binaryDict, inputString):
-	binaryString = ''
-	for c in inputString:
-		binaryString = binaryString + binaryDict[c]
-	return binaryString
+	#add binary 
