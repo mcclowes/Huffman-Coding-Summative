@@ -8,17 +8,24 @@ def decode_string(inputString):
 	bitString = inputString[inputString.index('}')+1:]
 
 	binaryDict = ast.literal_eval(stringDict)
+	binaryDict = {v: k for k, v in binaryDict.items()}
 	print (binaryDict)
 	print (bitString)
 
-	print ('Decoded string = ' + str(binary_to_string(bitString, binaryDict)))
+	decodedString = binary_to_string(bitString, binaryDict)
+	return decodedString
 
 def binary_to_string(inputString, binaryDict):
 	outputString = ''
-	for i in range(len(inputString)):
+	i = 0
+	while i in range(len(inputString)):
 		for j in range(i, len(inputString)):
 			if (inputString[i:j] in binaryDict):
-				outputString += inputString[i:j]
+				print(inputString[i:j])
+				outputString += binaryDict[inputString[i:j]]
+				print ("i = " + str(i) + " and j = " + str(j))
+				i = j - 1
 				break
+		i += 1
 
 	return outputString
