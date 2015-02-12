@@ -21,9 +21,8 @@ def binary_to_string(inputString, binaryDict):
 	while i in range(len(inputString)):
 		for j in range(i, len(inputString)):
 			if (inputString[i:j] in binaryDict):
-				print(inputString[i:j])
+				#print(inputString[i:j])
 				outputString += binaryDict[inputString[i:j]]
-				print ("i = " + str(i) + " and j = " + str(j))
 				i = j - 1
 				break
 		i += 1

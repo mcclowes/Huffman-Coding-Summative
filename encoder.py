@@ -10,10 +10,6 @@ def encode_string(inputString):
 	  else:
 	    charCounter[s] = 1
 
-	for key in charCounter:
-	  if charCounter[key] > 1:
-	    print key, charCounter[key]
-
 	#Copy into a tree
 	tree = charCounter.items()
 	print (tree)
@@ -22,7 +18,7 @@ def encode_string(inputString):
 	while len(tree) > 1:
 	#Sort (indent)
 		tree.sort(key=lambda tup: tup[1])
-		print (tree)
+		#print (tree)
 	#take min1 and min2 and remove
 		min1 = tuple(tree[0])
 		min2 = tuple(tree[1])
@@ -38,17 +34,15 @@ def encode_string(inputString):
 	#add binary
 	binaryDict = {}
 	walk_tree(tree[0], binaryDict, '')
-	print (binaryDict)
+	#print (binaryDict)
 
-	#return string_to_bits(output_string(binaryDict, inputString))
-	return (str(binaryDict) + str(output_string(binaryDict, inputString)))
+	return string_to_bits(output_string(binaryDict, inputString))
+	#return (str(binaryDict) + str(output_string(binaryDict, inputString)))
 
 def walk_tree(node, dic, code):
 	if type(node[0]) == type("str"):
 		dic.update({node[0]:code})
 	else:
-		print ("Current node = " + str(node[0]))
-		print ("Node type = " + str(type(node[0])))
 		walk_tree(node[0][0], dic, code + '0')
 		walk_tree(node[0][1], dic, code + '1')
 	return dic
@@ -60,7 +54,5 @@ def output_string(binaryDict, inputString):
 	return output_string
 
 def string_to_bits(bitString):
-	bitString = map(lambda x: int(x,2), bitString)
-	encodedString = bytearray(bitString)
-	return encodedString
+	return bytearray(map(lambda x: int(x,2), bitString))
 		
