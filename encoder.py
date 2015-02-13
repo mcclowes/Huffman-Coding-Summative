@@ -54,7 +54,6 @@ def string_to_bits(bitString):
 		bitString += '0'
 		paddingCounter += 1
 
-	print ('paddingCounter : ' + str(paddingCounter))
 	#Add buffer length count to front as 1 byte
 	paddingCounter = '{0:08b}'.format(paddingCounter)
 	bitString = paddingCounter + bitString

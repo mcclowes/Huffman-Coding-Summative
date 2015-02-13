@@ -3,16 +3,6 @@ from encoder import *
 from huffman_tools import *
 from datetime import datetime
 
-#Take file input
-run('lorum_ipsum')
-run('lorum_ipsum2')
-run('lorum_ipsum3')
-run('lorum_ipsum4')
-run('lorum_ipsum5')
-run('lorum_ipsum6')
-#filename = 'war_and_peace'
-#filename = input('\nInput filename (without file suffix):\n') 
-
 def run(filename):
 	print ('> Running on ' + filename)
 	#Encode selected file
@@ -27,3 +17,13 @@ def run(filename):
 	print ('\nDecoded text: \n' + str(decodedText))
 	output_decoded_file(filename, decodedText)
 	print ('Encode time: ' + str(encodeTime) + 's\nDecode time: ' + str(decodeTime) + 's\n\n')
+
+#Take file input
+run('lorum_ipsum')
+run('lorum_ipsum2')
+run('lorum_ipsum3')
+#run('lorum_ipsum4')
+#run('lorum_ipsum5')
+#run('lorum_ipsum6')
+#filename = 'war_and_peace'
+#filename = input('\nInput filename (without file suffix):\n') 
