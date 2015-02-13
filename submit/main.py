@@ -19,11 +19,4 @@ def run(filename):
 	output_decoded_file(filename, decodedText)
 	print ('Encode time: ' + str(encodeTime) + 's\nDecode time: ' + str(decodeTime) + 's\n\n')
 
-run('lorum_ipsum')
-run('lorum_ipsum2')
-run('lorum_ipsum3')
-run('lorum_ipsum4')
-run('lorum_ipsum5')
-run('lorum_ipsum6')
-run('war_and_peace')
-#run(input('\nInput filename (without file suffix):\n'))
+run(input('\nInput filename (without file suffix):\n'))
