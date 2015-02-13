@@ -12,7 +12,7 @@ def encode_string(inputString):
 
 	#Copy into a tree
 	tree = charCounter.items()
-	print (tree)
+	#print (tree)
 
 	#While the tree is bigger than 1
 	while len(tree) > 1:
@@ -67,7 +67,7 @@ def string_to_bits(bitString):
 	#divide bitString into array of bytes
 	n = 8
 	chunkedString = [bitString[i:i + n] for i in range(0, len(bitString), n)]
-	print (chunkedString)
+	#print (chunkedString)
 
 	#Return converted to bytes
 	return bytearray(map(lambda x: int(x,2), chunkedString))
