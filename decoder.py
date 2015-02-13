@@ -15,17 +15,19 @@ def decode_string(inputString):
 	for i in range(0, len(bitString)):
 		while len(bitString[i])<8:
 			bitString[i] = '0' + bitString[i]
-	print ('string: ' + str(bitString[1:])) #Correct form
+	#print ('string: ' + str(bitString)) #Correct form
 
 	#Read buffer counter
 	bufferCount = str(bitString[0])
 	bufferCount = int(bufferCount,2)
 	print ("Buffer counter: " + str(bufferCount))
-
 	#Join into single string + remove buffer digits from end
 	bitString = ''.join(bitString[1:])
-	bitString = bitString[:-bufferCount]
-
+	if bufferCount > 0:
+		bitString = bitString[:-bufferCount]
+	else:
+		bitString = bitString[:]
+	#print ("Printing bitString " + str(bitString[0:1000]))
 	#Decode into text. Return
 	return binary_to_string(bitString, binaryDict)
 

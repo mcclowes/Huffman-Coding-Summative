@@ -27,7 +27,7 @@ def encode_string(inputString):
 	#Create binary values for each char
 	binaryDict = {}
 	walk_tree(tree[0], binaryDict, '')
-	print (binaryDict)
+	#print (binaryDict)
 
 	#Return dictionary(for decoding purposes) + encoded binary of input text
 	return str(binaryDict) + string_to_bits(output_string(binaryDict, inputString))
@@ -54,6 +54,7 @@ def string_to_bits(bitString):
 		bitString += '0'
 		paddingCounter += 1
 
+	print ('paddingCounter : ' + str(paddingCounter))
 	#Add buffer length count to front as 1 byte
 	paddingCounter = '{0:08b}'.format(paddingCounter)
 	bitString = paddingCounter + bitString
