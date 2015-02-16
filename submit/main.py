@@ -19,4 +19,4 @@ def run(filename):
 	output_decoded_file(filename, decodedText)
 	print ('Encode time: ' + str(encodeTime) + 's\nDecode time: ' + str(decodeTime) + 's\n\n')
 
-run(input('\nInput filename (without file suffix):\n'))
+run(raw_input('\nInput filename (without file suffix):\n'))
