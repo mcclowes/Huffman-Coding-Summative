@@ -1,5 +1,4 @@
-# Huffman-Coding-Summative
-Digital Communications Summative
+# huffman-coding
   
 ## Using the code
     Note: Code is in Python, version 2.7
